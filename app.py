@@ -173,7 +173,7 @@ option = st.radio(
 if option == "Movie":
 
     selected = st.selectbox(
-    label="",
+    label="Movie Search",
     options=sorted(movies["title"].unique()),
     placeholder="Search for a movie...",
     label_visibility="collapsed"
@@ -187,12 +187,21 @@ elif option == "Actor":
         for actor in cast.split()
     })
 
-    selected = st.selectbox(label="",options=actors,placeholder="Search for an actor...",label_visibility="collapsed")
-
+    selected = st.selectbox(
+    label="Actor Search",
+    options=actors,
+    placeholder="Search for an actor...",
+    label_visibility="collapsed"
+)
 else:
 
     directors = sorted({director for crew in movies["crew"] for director in crew.split() })
-    selected = st.selectbox(label="",options=directors,placeholder="Search for a director...",label_visibility="collapsed")
+    selected = st.selectbox(
+    label="Director Search",
+    options=directors,
+    placeholder="Search for a director...",
+    label_visibility="collapsed"
+)
     
 # ===============================
 # SHOW SELECTED MOVIE
